@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model FoodRecipe {
+  id    Int     @id @default(autoincrement())
+  name  String
+  food  Food[]
+  timer Int
+  Level Level[]
+}
+
+model Food {
+  id           Int         @id @default(autoincrement())
+  FoodRecipe   FoodRecipe? @relation(fields: [foodRecipeId], references: [id])
+  foodRecipeId Int?
+  name         String
+  isCookable   Boolean
+  isCooking    Boolean
+  isCooked     Boolean
+  isChoppable  Boolean
+  isChopping   Boolean
+  isChopped    Boolean
+  isGrabbed    Boolean
+  delay        Int
+}
+
+model Save {
+  id     Int     @id @default(autoincrement())
+  points Int
+  level  Level[]
+}
+
+model Level {
+  id           Int         @id @default(autoincrement())
+  Save         Save?       @relation(fields: [saveId], references: [id])
+  saveId       Int?
+  FoodRecipe   FoodRecipe? @relation(fields: [foodRecipeId], references: [id])
+  foodRecipeId Int?
+}
