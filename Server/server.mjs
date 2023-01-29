@@ -23,7 +23,6 @@ server.use((req, res, next) => {
 });
 
 //Routes de L'api
-
 server.get('/api/foodRecipe', async (req, res) => {
 	try {
 		const AllFoodRecipe = await prisma.FoodRecipe.findMany();
@@ -114,6 +113,7 @@ server.get(`/api/recipeFood/idRecipe=${4}`, async (req, res) => {
 		});
 	}
 });
+
 //Bloody Burger
 server.get(`/api/recipeFood/idRecipe=${5}`, async (req, res) => {
 	try {
@@ -142,6 +142,7 @@ server.get(`/api/recipeFood/idRecipe=${6}`, async (req, res) => {
 		});
 	}
 });
+
 //Hess Burger
 server.get(`/api/recipeFood/idRecipe=${7}`, async (req, res) => {
 	try {
@@ -156,6 +157,7 @@ server.get(`/api/recipeFood/idRecipe=${7}`, async (req, res) => {
 		});
 	}
 });
+
 //Poor Burger
 server.get(`/api/recipeFood/idRecipe=${8}`, async (req, res) => {
 	try {
