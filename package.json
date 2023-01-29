@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "server": "node ./Server/server.cjs"
-    
+    "server": "node ./Server/server.mjs"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "3.0",
@@ -20,6 +19,7 @@
     "@react-three/drei": "^9.50.3",
     "@react-three/fiber": "^8.9.2",
     "@react-three/rapier": "^0.9.0",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "r3f-perf": "^6.6.3",
     "react": "18.2",
