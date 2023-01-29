@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 const isCodeSandbox = !!process.env.SANDBOX_URL;
 
 export default {
-	plugins: [react(), reactRefresh()],
+	plugins: [react()],
 	root: 'src/',
 	publicDir: '../public/',
 	base: './',
