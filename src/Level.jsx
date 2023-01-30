@@ -2,24 +2,8 @@ import * as THREE from 'three';
 import { CuboidCollider, RigidBody } from '@react-three/rapier';
 import { useGLTF } from '@react-three/drei';
 
-function FoodBox(props) {
-	const { nodes, materials } = useGLTF('/props/food_box-transformed.glb');
-	return (
-		<group {...props} dispose={null}>
-			<mesh
-				geometry={nodes.Cube001.geometry}
-				material={materials['Material.055']}
-				position={[0, 0.98, 0]}
-				scale={[0.89, 0.98, 0.98]}
-			/>
-		</group>
-	);
-}
-
 export function TableLeftWorkBoard(props) {
-	const { nodes, materials } = useGLTF(
-		'/props/table_left_work_board-transformed.glb'
-	);
+	const { nodes, materials } = useGLTF('/props/table_left_work_board.glb');
 	return (
 		<group {...props} dispose={null}>
 			<group position={[0, 1.68, 0]} scale={0.11}>
@@ -41,7 +25,7 @@ export function TableLeftWorkBoard(props) {
 }
 
 export function TableRight(props) {
-	const { nodes, materials } = useGLTF('/props/table_right-transformed.glb');
+	const { nodes, materials } = useGLTF('/props/table_right.glb');
 	return (
 		<group {...props} dispose={null}>
 			<mesh
@@ -71,6 +55,11 @@ function Kitchen() {
 	const counter = useGLTF('./props/counter.glb');
 	const cubePlates = useGLTF('./props/cube_plates.glb');
 	const fridge = useGLTF('./props/fridge.glb');
+	const breadBox = useGLTF('./props/bread_box.glb');
+	const cheeseBox = useGLTF('./props/cheese_box.glb');
+	const lettuceBox = useGLTF('./props/lettuce_box.glb');
+	const steakBox = useGLTF('./props/steak_box.glb');
+	const tomatoBox = useGLTF('./props/tomato_box.glb');
 	const rightSink = useGLTF('./props/right_sink.glb');
 	const leftSink = useGLTF('./props/left_sink.glb');
 	const cubeLeft = useGLTF('./props/cube_left.glb');
@@ -98,25 +87,25 @@ function Kitchen() {
 			{/* Foodbox */}
 			<RigidBody type="fixed" colliders={false} position={[-3, 0.25, 9.25]}>
 				<CuboidCollider args={[0.9, 5, 1]} position={[0, 2, 0]} />
-				<FoodBox />
+				<primitive object={breadBox.scene} scale={1} />
 			</RigidBody>
 			<RigidBody type="fixed" colliders={false} position={[-6.5, 0.25, 9.25]}>
 				<CuboidCollider args={[0.9, 5, 1]} position={[0, 2, 0]} />
-				<FoodBox />
+				<primitive object={steakBox.scene} scale={1} />
 			</RigidBody>
 
 			{/* Central Foodbox */}
 			<RigidBody type="fixed" colliders={false} position={[-2, 0.25, 2]}>
 				<CuboidCollider args={[0.9, 5, 1]} position={[0, 2, 0]} />
-				<FoodBox />
+				<primitive object={lettuceBox.scene} scale={1} />
 			</RigidBody>
 			<RigidBody type="fixed" colliders={false} position={[1.25, 0.25, 2]}>
 				<CuboidCollider args={[0.9, 5, 1]} position={[0, 2, 0]} />
-				<FoodBox />
+				<primitive object={tomatoBox.scene} scale={1} />
 			</RigidBody>
 			<RigidBody type="fixed" colliders={false} position={[4.5, 0.25, 2]}>
 				<CuboidCollider args={[0.9, 5, 1]} position={[0, 2, 0]} />
-				<FoodBox />
+				<primitive object={cheeseBox.scene} scale={1} />
 			</RigidBody>
 
 			{/* Central Table */}
@@ -190,6 +179,7 @@ function Kitchen() {
 
 export default function Level() {
 	const map = useGLTF('./map.glb');
+
 	return (
 		<>
 			<RigidBody type={'fixed'} colliders={false} position={[0, 0, -4]}>

@@ -1,11 +1,88 @@
+@font-face {
+	font-family: 'PPMori';
+	src: url('/PPMori-SemiBold.otf') format('opentype');
+}
+
 html,
 body,
-#root
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: ivory;
+#root {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fffff0;
+	background-image: url('/homescreen.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+* {
+	font-family: 'PPMori', sans-serif;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 100%;
+}
+
+.menu {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	row-gap: 32px;
+}
+
+.logo {
+	pointer-events: none;
+	width: clamp(300px, calc(80vw - 64px), 600px);
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	row-gap: 64px;
+	opacity: 1;
+}
+
+.buttons div {
+	display: flex;
+	flex-direction: row;
+	column-gap: 24px;
+	padding: 32px;
+	padding-bottom: 28px;
+	border-radius: 10px;
+	border: 1px solid #000000;
+	cursor: pointer;
+}
+
+.newgame img {
+	height: 64px;
+}
+
+.newgame p {
+	padding-top: 4px;
+	font-size: 64px;
+}
+
+.newgame {
+	background: #bbd0ff;
+}
+
+.loadgame {
+	background: #bbffcf;
 }

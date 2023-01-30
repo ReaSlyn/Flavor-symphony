@@ -1,4 +1,4 @@
-import { RigidBody, CuboidCollider } from '@react-three/rapier';
+import { useRapier, RigidBody, CuboidCollider } from '@react-three/rapier';
 import { useFrame } from '@react-three/fiber';
 import { useKeyboardControls } from '@react-three/drei';
 import { useState, useEffect, useRef } from 'react';
@@ -8,6 +8,14 @@ import * as THREE from 'three';
 export default function Player() {
 	const body = useRef();
 	const character = useGLTF('./character.glb');
+
+	const { rapier, world } = useRapier();
+	const rapierWorld = world.raw();
+
+	/* const origin = body.current.translation();
+	const direction = { x: 0, y: 0, z: 0 };
+	const ray = new rapier.Ray(origin, direction);
+	const hit = rapierWorld.castRay(ray, 10, true); */
 
 	const [speed, setSpeed] = useState(1.5);
 
@@ -146,7 +154,7 @@ export default function Player() {
 			type={'dynamic'}
 			colliders={false}
 			ref={body}
-			position={[1, 5, 4]}
+			position={[1, 1.25, 4]}
 		>
 			<CuboidCollider args={[1.1, 2.75, 0.9]} position={[0.05, 1.75, 0.05]} />
 			<primitive object={character.scene} scale={1} />
