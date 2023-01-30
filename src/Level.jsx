@@ -73,43 +73,83 @@ function Kitchen() {
 	return (
 		<>
 			{/* Counter */}
-			<RigidBody type="fixed" colliders={false} position={[7.25, 0.25, 9.25]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[7.25, 0.25, 9.25]}
+				userData={{ type: 'counter' }}
+			>
 				<CuboidCollider args={[4, 5, 1.1]} position={[0, 2, 0]} />
 				<primitive object={counter.scene} scale={1} />
 			</RigidBody>
 
 			{/* Cube Plates */}
-			<RigidBody type="fixed" colliders={false} position={[2, 0.25, 9.25]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[2, 0.25, 9.25]}
+				userData={{ type: 'plates' }}
+			>
 				<CuboidCollider args={[1.35, 5, 1.1]} position={[0, 2, 0]} />
 				<primitive object={cubePlates.scene} scale={1} />
 			</RigidBody>
 
 			{/* Foodbox */}
-			<RigidBody type="fixed" colliders={false} position={[-3, 0.25, 9.25]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[-3, 0.25, 9.25]}
+				userData={{ type: 'box_bread' }}
+			>
 				<CuboidCollider args={[0.9, 5, 1]} position={[0, 2, 0]} />
 				<primitive object={breadBox.scene} scale={1} />
 			</RigidBody>
-			<RigidBody type="fixed" colliders={false} position={[-6.5, 0.25, 9.25]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[-6.5, 0.25, 9.25]}
+				userData={{ type: 'box_steak' }}
+			>
 				<CuboidCollider args={[0.9, 5, 1]} position={[0, 2, 0]} />
 				<primitive object={steakBox.scene} scale={1} />
 			</RigidBody>
 
 			{/* Central Foodbox */}
-			<RigidBody type="fixed" colliders={false} position={[-2, 0.25, 2]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[-2, 0.25, 2]}
+				userData={{ type: 'box_lettuce' }}
+			>
 				<CuboidCollider args={[0.9, 5, 1]} position={[0, 2, 0]} />
 				<primitive object={lettuceBox.scene} scale={1} />
 			</RigidBody>
-			<RigidBody type="fixed" colliders={false} position={[1.25, 0.25, 2]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[1.25, 0.25, 2]}
+				userData={{ type: 'box_tomato' }}
+			>
 				<CuboidCollider args={[0.9, 5, 1]} position={[0, 2, 0]} />
 				<primitive object={tomatoBox.scene} scale={1} />
 			</RigidBody>
-			<RigidBody type="fixed" colliders={false} position={[4.5, 0.25, 2]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[4.5, 0.25, 2]}
+				userData={{ type: 'box_cheese' }}
+			>
 				<CuboidCollider args={[0.9, 5, 1]} position={[0, 2, 0]} />
 				<primitive object={cheeseBox.scene} scale={1} />
 			</RigidBody>
 
 			{/* Central Table */}
-			<RigidBody type="fixed" colliders={false} position={[-2.5, 0.25, 0]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[-2.5, 0.25, 0]}
+				userData={{ type: 'workboard' }}
+			>
 				<CuboidCollider args={[1.2, 5, 1.1]} position={[0.1, 2, -0.1]} />
 				<TableLeftWorkBoard />
 			</RigidBody>
@@ -117,7 +157,12 @@ function Kitchen() {
 				<CuboidCollider args={[1.2, 5, 1.1]} position={[-0.1, 2, 0]} />
 				<TableRight />
 			</RigidBody>
-			<RigidBody type="fixed" colliders={false} position={[2.5, 0.25, 0]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[2.5, 0.25, 0]}
+				userData={{ type: 'workboard' }}
+			>
 				<CuboidCollider args={[1.2, 5, 1.1]} position={[0.1, 2, -0.1]} />
 				<TableLeftWorkBoard />
 			</RigidBody>
@@ -133,11 +178,21 @@ function Kitchen() {
 			</RigidBody>
 
 			{/* Sinks */}
-			<RigidBody type="fixed" colliders={false} position={[-10, 0.25, 4]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[-10, 0.25, 4]}
+				userData={{ type: 'sink' }}
+			>
 				<CuboidCollider args={[0.95, 5, 2.5]} position={[0.1, 2, 0.1]} />
 				<primitive object={rightSink.scene} scale={1} />
 			</RigidBody>
-			<RigidBody type="fixed" colliders={false} position={[-10, 0.25, -4]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[-10, 0.25, -4]}
+				userData={{ type: 'sink' }}
+			>
 				<CuboidCollider args={[0.95, 5, 2.5]} position={[0.1, 2, 0.1]} />
 				<primitive object={leftSink.scene} scale={1} />
 			</RigidBody>
@@ -147,7 +202,12 @@ function Kitchen() {
 				<CuboidCollider args={[1.3, 5, 1.1]} position={[0, 2, 0]} />
 				<primitive object={cubeLeft.scene} scale={1} />
 			</RigidBody>
-			<RigidBody type="fixed" colliders={false} position={[-2.75, 0.25, -7.3]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[-2.75, 0.25, -7.3]}
+				userData={{ type: 'pan' }}
+			>
 				<CuboidCollider args={[1.3, 5, 1.1]} position={[0, 2, 0]} />
 				<primitive object={cubeRightPan.scene} scale={1} />
 			</RigidBody>
@@ -159,7 +219,12 @@ function Kitchen() {
 				<CuboidCollider args={[1.3, 5, 1.1]} position={[0, 2, 0]} />
 				<primitive object={cubeRightMixer.scene} scale={1} />
 			</RigidBody>
-			<RigidBody type="fixed" colliders={false} position={[5.75, 0.25, -7.19]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[5.75, 0.25, -7.19]}
+				userData={{ type: 'pan' }}
+			>
 				<CuboidCollider args={[1.3, 5, 1.1]} position={[0, 2, 0]} />
 				<primitive object={cubeLeftPan.scene} scale={1} />
 			</RigidBody>
@@ -169,7 +234,12 @@ function Kitchen() {
 			</RigidBody>
 
 			{/* Bin */}
-			<RigidBody type="fixed" colliders={false} position={[10.5, 0.25, -5]}>
+			<RigidBody
+				type="fixed"
+				colliders={false}
+				position={[10.5, 0.25, -5]}
+				userData={{ type: 'bin' }}
+			>
 				<CuboidCollider args={[1, 5, 1]} position={[0, 2, 0]} />
 				<primitive object={bin.scene} scale={1} />
 			</RigidBody>
