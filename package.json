@@ -25,5 +25,8 @@
     "react": "18.2",
     "react-dom": "18.2",
     "three": "^0.148.0"
+  },"prisma": {
+    "schema": "prisma/schema.prisma",
+    "seed": "node prisma/seed.js"
   }
 }

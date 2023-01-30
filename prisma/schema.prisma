@@ -11,26 +11,34 @@ datasource db {
 }
 
 model FoodRecipe {
-  id    Int     @id @default(autoincrement())
-  name  String
-  food  Food[]
-  timer Int
-  Level Level[]
+  id         Int          @id @default(autoincrement())
+  name       String
+  timer      Int
+  Level      Level[]
+  recipeFood recipeFood[]
 }
 
 model Food {
-  id           Int         @id @default(autoincrement())
-  FoodRecipe   FoodRecipe? @relation(fields: [foodRecipeId], references: [id])
-  foodRecipeId Int?
-  name         String
-  isCookable   Boolean
-  isCooking    Boolean
-  isCooked     Boolean
-  isChoppable  Boolean
-  isChopping   Boolean
-  isChopped    Boolean
-  isGrabbed    Boolean
-  delay        Int
+  id          Int          @id @default(autoincrement())
+  name        String
+  isCookable  Boolean
+  isCooking   Boolean
+  isCooked    Boolean
+  isChoppable Boolean
+  isChopping  Boolean
+  isChopped   Boolean
+  isGrabbed   Boolean
+  delay       Int
+  recipeFood  recipeFood[]
+}
+
+model recipeFood {
+  id         Int        @id @default(autoincrement())
+  Food       Food       @relation(fields: [idFood], references: [id])
+  idFood     Int
+  FoodRecipe FoodRecipe @relation(fields: [idRecipe], references: [id])
+  idRecipe   Int
+  quantity   Int
 }
 
 model Save {
