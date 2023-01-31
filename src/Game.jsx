@@ -12,25 +12,24 @@ export default function Game() {
 
 	return (
 		<>
-			{!isRunning && (
-				<div className="menu">
-					<img className="logo" src="./logo.png" alt="logo" />
-					<div className="buttons">
-						<div className="newgame" onClick={() => setIsRunning(true)}>
-							<img src="./icon/new game.svg" alt="polygon start game" />
-							<p>NEW GAME</p>
-						</div>
-						{isPreviousSaveExisting && (
-							<div className="loadsave" onClick={() => loadPreviousSave()}>
-								<p>LOAD SAVE</p>
-							</div>
-						)}
+			<div className="menu">
+				<img className="logo" src="./logo.png" alt="logo" />
+				<div className={`buttons ${isRunning ? 'hide' : ''}`}>
+					<div className="newgame" onClick={() => setIsRunning(true)}>
+						<img src="./icon/new game.svg" alt="polygon start game" />
+						<p>NEW GAME</p>
 					</div>
+					{isPreviousSaveExisting && (
+						<div className="loadsave" onClick={() => loadPreviousSave()}>
+							<p>LOAD SAVE</p>
+						</div>
+					)}
 				</div>
-			)}
+			</div>
 
 			{isRunning && (
 				<Canvas
+					className={`canvas ${isRunning ? 'show' : ''}`}
 					camera={{
 						fov: 45,
 						near: 0.1,
