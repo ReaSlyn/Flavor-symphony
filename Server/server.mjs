@@ -55,8 +55,8 @@ server.get('/api/recipeFood', async (req, res) => {
 	}
 });
 
-//Soule Burger
-server.get('/api/recipeFood/soulBurger', async (req, res) => {
+//Soul Burger
+server.get(`/api/recipeFood/?idRecipe=${1}`, async (req, res) => {
 	try {
 		const soulBurgerRecipe = await prisma.recipeFood.findMany({
 			where: { idRecipe: 1 },
@@ -71,7 +71,7 @@ server.get('/api/recipeFood/soulBurger', async (req, res) => {
 });
 
 //Supreme Burger
-server.get('/api/recipeFood/supremeBurger', async (req, res) => {
+server.get(`/api/recipeFood/idRecipe=${2}`, async (req, res) => {
 	try {
 		const supremeBurgerRecipe = await prisma.recipeFood.findMany({
 			where: { idRecipe: 2 },
@@ -86,7 +86,7 @@ server.get('/api/recipeFood/supremeBurger', async (req, res) => {
 });
 
 //Mommy's Burger
-server.get('/api/recipeFood/mommysBurger', async (req, res) => {
+server.get(`/api/recipeFood/idRecipe=${3}`, async (req, res) => {
 	try {
 		const mommysBurgerRecipe = await prisma.recipeFood.findMany({
 			where: { idRecipe: 3 },
@@ -101,7 +101,7 @@ server.get('/api/recipeFood/mommysBurger', async (req, res) => {
 });
 
 //Peckish Burger
-server.get('/api/recipeFood/peckishBurger', async (req, res) => {
+server.get(`/api/recipeFood/idRecipe=${4}`, async (req, res) => {
 	try {
 		const peckishBurgerRecipe = await prisma.recipeFood.findMany({
 			where: { idRecipe: 4 },
@@ -115,7 +115,7 @@ server.get('/api/recipeFood/peckishBurger', async (req, res) => {
 	}
 });
 //Bloody Burger
-server.get('/api/recipeFood/bloodyhBurger', async (req, res) => {
+server.get(`/api/recipeFood/idRecipe=${5}`, async (req, res) => {
 	try {
 		const bloodyBurgerRecipe = await prisma.recipeFood.findMany({
 			where: { idRecipe: 5 },
@@ -129,7 +129,7 @@ server.get('/api/recipeFood/bloodyhBurger', async (req, res) => {
 	}
 });
 //Friendly Burger
-server.get('/api/recipeFood/friendlyBurger', async (req, res) => {
+server.get(`/api/recipeFood/idRecipe=${6}`, async (req, res) => {
 	try {
 		const friendlyBurgerRecipe = await prisma.recipeFood.findMany({
 			where: { idRecipe: 6 },
@@ -143,7 +143,7 @@ server.get('/api/recipeFood/friendlyBurger', async (req, res) => {
 	}
 });
 //Hess Burger
-server.get('/api/recipeFood/hessBurger', async (req, res) => {
+server.get(`/api/recipeFood/idRecipe=${7}`, async (req, res) => {
 	try {
 		const hessBurgerRecipe = await prisma.recipeFood.findMany({
 			where: { idRecipe: 7 },
@@ -157,7 +157,7 @@ server.get('/api/recipeFood/hessBurger', async (req, res) => {
 	}
 });
 //Poor Burger
-server.get('/api/recipeFood/poorBurger', async (req, res) => {
+server.get(`/api/recipeFood/idRecipe=${8}`, async (req, res) => {
 	try {
 		const poorBurgerRecipe = await prisma.recipeFood.findMany({
 			where: { idRecipe: 8 },
