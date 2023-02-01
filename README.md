@@ -1,7 +1,7 @@
 # Flavor-symphony
 
 ## TLDR
-- The main branch possess the working game.
+- The main branch possess the working game and you can play it on https://flavor-symphony.vercel.app/
 
 - The feat/backend branch possess the working customer order (recipe) generation with the used backend but interaction aren't working.
 
