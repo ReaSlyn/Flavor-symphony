@@ -293,7 +293,7 @@ export function CookedSteak(props) {
 /* BURGER */
 
 export function BurgerSteak(props) {
-	const { nodes, materials } = useGLTF('/burger steak-transformed.glb');
+	const { nodes, materials } = useGLTF('/food/burger/burger steak.glb');
 	return (
 		<group {...props} dispose={null}>
 			<group position={[0, 0.51, 0]} scale={[0.65, 1.14, 0.65]}>
@@ -319,7 +319,7 @@ export function BurgerSteak(props) {
 }
 
 export function BurgerLettuce(props) {
-	const { nodes, materials } = useGLTF('/burger lettuce-transformed.glb');
+	const { nodes, materials } = useGLTF('/food/burger/burger lettuce.glb');
 	return (
 		<group {...props} dispose={null}>
 			<group position={[0, 0.34, 0.02]} scale={[0.64, 0.92, 0.64]}>
@@ -345,7 +345,7 @@ export function BurgerLettuce(props) {
 }
 
 export function BurgerTomato(props) {
-	const { nodes, materials } = useGLTF('/burger tomato-transformed.glb');
+	const { nodes, materials } = useGLTF('/food/burger/burger tomato.glb');
 	return (
 		<group {...props} dispose={null}>
 			<group position={[0, 0.34, 0.02]} scale={[0.64, 0.92, 0.64]}>
@@ -387,7 +387,7 @@ export function BurgerTomato(props) {
 }
 
 export function BurgerCheese(props) {
-	const { nodes, materials } = useGLTF('/burger cheese-transformed.glb');
+	const { nodes, materials } = useGLTF('/food/burger/burger cheese.glb');
 	return (
 		<group {...props} dispose={null}>
 			<group position={[0, 0.33, 0.02]} scale={[0.64, 0.92, 0.64]}>
@@ -414,7 +414,7 @@ export function BurgerCheese(props) {
 
 export function BurgerLettuceCheese(props) {
 	const { nodes, materials } = useGLTF(
-		'/burger lettuce cheese-transformed.glb'
+		'/food/burger/burger lettuce cheese.glb'
 	);
 	return (
 		<group {...props} dispose={null}>
@@ -446,7 +446,7 @@ export function BurgerLettuceCheese(props) {
 
 export function BurgerLettuceTomato(props) {
 	const { nodes, materials } = useGLTF(
-		'/burger lettuce tomato-transformed.glb'
+		'/food/burger/burger lettuce tomato.glb'
 	);
 	return (
 		<group {...props} dispose={null}>
@@ -493,7 +493,7 @@ export function BurgerLettuceTomato(props) {
 }
 
 export function BurgerTomatoCheese(props) {
-	const { nodes, materials } = useGLTF('/burger tomato cheese-transformed.glb');
+	const { nodes, materials } = useGLTF('/food/burger/burger tomato cheese.glb');
 	return (
 		<group {...props} dispose={null}>
 			<group position={[0, 0.38, 0.02]} scale={[0.64, 0.92, 0.64]}>
@@ -539,7 +539,7 @@ export function BurgerTomatoCheese(props) {
 }
 
 export function BurgerSteakLettuce(props) {
-	const { nodes, materials } = useGLTF('/burger steak lettuce-transformed.glb');
+	const { nodes, materials } = useGLTF('/food/burger/burger steak lettuce.glb');
 	return (
 		<group {...props} dispose={null}>
 			<group position={[0, 0.55, 0.01]} scale={[0.65, 1.06, 0.65]}>
@@ -568,9 +568,89 @@ export function BurgerSteakLettuce(props) {
 	);
 }
 
-export function BurgerTomatoLettuceCheese(props) {
+export function BurgerSteakTomato(props) {
+	const { nodes, materials } = useGLTF('/food/burger/burger steak tomato.glb');
+	return (
+		<group {...props} dispose={null}>
+			<group
+				position={[0, 0.4, 0]}
+				rotation={[-Math.PI, 0.15, -Math.PI]}
+				scale={[-0.18, -0.02, -0.18]}
+			>
+				<mesh
+					geometry={nodes.Cylinder011.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cylinder011_1.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cylinder011_2.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cylinder011_3.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cylinder011_4.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cylinder011_5.geometry}
+					material={materials['Material.005']}
+				/>
+				<mesh
+					geometry={nodes.Cylinder011_6.geometry}
+					material={materials['Material.003']}
+				/>
+				<mesh
+					geometry={nodes.Cylinder011_7.geometry}
+					material={materials['Material.005']}
+				/>
+				<mesh
+					geometry={nodes.Cylinder011_8.geometry}
+					material={materials['Material.019']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerSteakCheese(props) {
+	const { nodes, materials } = useGLTF('/food/burger/burger steak cheese.glb');
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.53, 0.02]} scale={[0.64, 0.92, 0.64]}>
+				<mesh
+					geometry={nodes.Cube001.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_2.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_3.geometry}
+					material={materials['Material.006']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_4.geometry}
+					material={materials['Material.007']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerLettuceTomatoCheese(props) {
 	const { nodes, materials } = useGLTF(
-		'/burger lettuce tomato cheese-transformed.glb'
+		'/food/burger/burger lettuce tomato cheese.glb'
 	);
 	return (
 		<group {...props} dispose={null}>
@@ -622,7 +702,7 @@ export function BurgerTomatoLettuceCheese(props) {
 
 export function BurgerSteakLettuceTomato(props) {
 	const { nodes, materials } = useGLTF(
-		'/burger steak lettuce tomato-transformed.glb'
+		'/food/burger/burger steak lettuce tomato.glb'
 	);
 	return (
 		<group {...props} dispose={null}>
@@ -674,7 +754,7 @@ export function BurgerSteakLettuceTomato(props) {
 
 export function BurgerSteakTomatoCheese(props) {
 	const { nodes, materials } = useGLTF(
-		'/burger steak tomato cheese-transformed.glb'
+		'/food/burger/burger steak tomato cheese.glb'
 	);
 	return (
 		<group {...props} dispose={null}>
@@ -726,7 +806,7 @@ export function BurgerSteakTomatoCheese(props) {
 
 export function BurgerSteakLettuceCheese(props) {
 	const { nodes, materials } = useGLTF(
-		'/burger steak lettuce cheese-transformed.glb'
+		'/food/burger/burger steak lettuce cheese.glb'
 	);
 	return (
 		<group {...props} dispose={null}>
@@ -762,7 +842,7 @@ export function BurgerSteakLettuceCheese(props) {
 
 export function BurgerSteakLettuceTomatoCheese(props) {
 	const { nodes, materials } = useGLTF(
-		'/burger steak lettuce tomato cheese-transformed.glb'
+		'/food/burger/burger steak lettuce tomato cheese.glb'
 	);
 	return (
 		<group {...props} dispose={null}>
@@ -872,6 +952,96 @@ const items = [
 		component: <CookedSteak />,
 		name: 'cooked_steak',
 		position: [15, 4, 30],
+	},
+	{
+		component: <BurgerCheese />,
+		name: 'burger_cheese',
+		position: [-35, 4, 40],
+	},
+	{
+		component: <BurgerLettuce />,
+		name: 'burger_lettuce',
+		position: [-30, 4, 40],
+	},
+	{
+		component: <BurgerLettuceTomato />,
+		name: 'burger_lettuce_tomato',
+		position: [-25, 4, 40],
+	},
+	{
+		component: <BurgerSteak />,
+		name: 'burger_steak',
+		position: [-20, 4, 40],
+	},
+	{
+		component: <BurgerLettuce />,
+		name: 'burger_lettuce',
+		position: [-15, 4, 40],
+	},
+	{
+		component: <BurgerTomato />,
+		name: 'burger_tomato',
+		position: [-10, 4, 40],
+	},
+	{
+		component: <BurgerCheese />,
+		name: 'burger_cheese',
+		position: [-5, 4, 40],
+	},
+	{
+		component: <BurgerSteakTomato />,
+		name: 'burger_steak_tomato',
+		position: [0, 4, 40],
+	},
+	{
+		component: <BurgerSteakLettuce />,
+		name: 'burger_steak_lettuce',
+		position: [5, 4, 40],
+	},
+	{
+		component: <BurgerSteakCheese />,
+		name: 'burger_steak_cheese',
+		position: [10, 4, 40],
+	},
+	{
+		component: <BurgerLettuceTomato />,
+		name: 'burger_lettuce_tomato',
+		position: [15, 4, 40],
+	},
+	{
+		component: <BurgerTomatoCheese />,
+		name: 'burger_steak_tomato_cheese',
+		position: [20, 4, 40],
+	},
+	{
+		component: <BurgerLettuceCheese />,
+		name: 'burger_steak_lettuce_tomato_cheese',
+		position: [25, 4, 40],
+	},
+	{
+		component: <BurgerSteakLettuceTomato />,
+		name: 'burger_steak_lettuce_tomato',
+		position: [30, 4, 40],
+	},
+	{
+		component: <BurgerSteakLettuceCheese />,
+		name: 'burger_steak_lettuce_cheese',
+		position: [-25, 4, 50],
+	},
+	{
+		component: <BurgerSteakLettuceCheese />,
+		name: 'burger_steak_lettuce_cheese',
+		position: [-20, 4, 50],
+	},
+	{
+		component: <BurgerSteakTomatoCheese />,
+		name: 'burger_steak_tomato_cheese',
+		position: [-15, 4, 50],
+	},
+	{
+		component: <BurgerSteakLettuceTomatoCheese />,
+		name: 'burger_steak_lettuce_tomato_cheese',
+		position: [-10, 4, 50],
 	},
 ];
 
