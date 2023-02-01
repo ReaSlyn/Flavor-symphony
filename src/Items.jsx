@@ -290,62 +290,588 @@ export function CookedSteak(props) {
 	);
 }
 
+/* BURGER */
+
+export function BurgerSteak(props) {
+	const { nodes, materials } = useGLTF('/burger steak-transformed.glb');
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.51, 0]} scale={[0.65, 1.14, 0.65]}>
+				<mesh
+					geometry={nodes.Cube003.geometry}
+					material={materials['Material.001']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_2.geometry}
+					material={materials['Material.001']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_3.geometry}
+					material={materials['Material.003']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerLettuce(props) {
+	const { nodes, materials } = useGLTF('/burger lettuce-transformed.glb');
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.34, 0.02]} scale={[0.64, 0.92, 0.64]}>
+				<mesh
+					geometry={nodes.Cube001.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_2.geometry}
+					material={materials['Material.004']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_3.geometry}
+					material={materials['Material.008']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerTomato(props) {
+	const { nodes, materials } = useGLTF('/burger tomato-transformed.glb');
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.34, 0.02]} scale={[0.64, 0.92, 0.64]}>
+				<mesh
+					geometry={nodes.Cube001.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_2.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_3.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_4.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_5.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_6.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_7.geometry}
+					material={materials['Material.010']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerCheese(props) {
+	const { nodes, materials } = useGLTF('/burger cheese-transformed.glb');
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.33, 0.02]} scale={[0.64, 0.92, 0.64]}>
+				<mesh
+					geometry={nodes.Cube001.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_2.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_3.geometry}
+					material={materials['Material.007']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerLettuceCheese(props) {
+	const { nodes, materials } = useGLTF(
+		'/burger lettuce cheese-transformed.glb'
+	);
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.39, 0.02]} scale={[0.64, 0.92, 0.64]}>
+				<mesh
+					geometry={nodes.Cube001.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_2.geometry}
+					material={materials['Material.004']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_3.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_4.geometry}
+					material={materials['Material.007']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerLettuceTomato(props) {
+	const { nodes, materials } = useGLTF(
+		'/burger lettuce tomato-transformed.glb'
+	);
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.4, 0.02]} scale={[0.64, 0.92, 0.64]}>
+				<mesh
+					geometry={nodes.Cube001.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_2.geometry}
+					material={materials['Material.004']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_3.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_4.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_5.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_6.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_7.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_8.geometry}
+					material={materials['Material.010']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerTomatoCheese(props) {
+	const { nodes, materials } = useGLTF('/burger tomato cheese-transformed.glb');
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.38, 0.02]} scale={[0.64, 0.92, 0.64]}>
+				<mesh
+					geometry={nodes.Cube001.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_2.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_3.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_4.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_5.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_6.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_7.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_8.geometry}
+					material={materials['Material.007']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerSteakLettuce(props) {
+	const { nodes, materials } = useGLTF('/burger steak lettuce-transformed.glb');
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.55, 0.01]} scale={[0.65, 1.06, 0.65]}>
+				<mesh
+					geometry={nodes.Cube003.geometry}
+					material={materials['Material.001']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_2.geometry}
+					material={materials['Material.004']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_3.geometry}
+					material={materials['Material.001']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_4.geometry}
+					material={materials['Material.003']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerTomatoLettuceCheese(props) {
+	const { nodes, materials } = useGLTF(
+		'/burger lettuce tomato cheese-transformed.glb'
+	);
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.43, 0.02]} scale={[0.64, 0.92, 0.64]}>
+				<mesh
+					geometry={nodes.Cube001.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_2.geometry}
+					material={materials['Material.004']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_3.geometry}
+					material={materials['Material.008']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_4.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_5.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_6.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_7.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_8.geometry}
+					material={materials['Material.010']}
+				/>
+				<mesh
+					geometry={nodes.Cube001_9.geometry}
+					material={materials['Material.007']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerSteakLettuceTomato(props) {
+	const { nodes, materials } = useGLTF(
+		'/burger steak lettuce tomato-transformed.glb'
+	);
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.59, 0.01]} scale={[0.65, 0.98, 0.65]}>
+				<mesh
+					geometry={nodes.Cube003.geometry}
+					material={materials['Material.001']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_2.geometry}
+					material={materials['Material.004']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_3.geometry}
+					material={materials['Material.001']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_4.geometry}
+					material={materials['Material.003']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_5.geometry}
+					material={materials['Material.014']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_6.geometry}
+					material={materials['Material.014']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_7.geometry}
+					material={materials['Material.014']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_8.geometry}
+					material={materials['Material.014']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_9.geometry}
+					material={materials['Material.014']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerSteakTomatoCheese(props) {
+	const { nodes, materials } = useGLTF(
+		'/burger steak tomato cheese-transformed.glb'
+	);
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.3, 0.01]} scale={[0.65, 0.86, 0.65]}>
+				<mesh
+					geometry={nodes.Cube002.geometry}
+					material={materials['Material.003']}
+				/>
+				<mesh
+					geometry={nodes.Cube002_1.geometry}
+					material={materials['Material.005']}
+				/>
+				<mesh
+					geometry={nodes.Cube002_2.geometry}
+					material={materials['Material.005']}
+				/>
+				<mesh
+					geometry={nodes.Cube002_3.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube002_4.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cube002_5.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cube002_6.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cube002_7.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cube002_8.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cube002_9.geometry}
+					material={materials['Material.002']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerSteakLettuceCheese(props) {
+	const { nodes, materials } = useGLTF(
+		'/burger steak lettuce cheese-transformed.glb'
+	);
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.2, 0]} scale={[0.65, 0.69, 0.65]}>
+				<mesh
+					geometry={nodes.Circle003.geometry}
+					material={materials['Material.072']}
+				/>
+				<mesh
+					geometry={nodes.Circle003_1.geometry}
+					material={materials['Material.073']}
+				/>
+				<mesh
+					geometry={nodes.Circle003_2.geometry}
+					material={materials['Material.074']}
+				/>
+				<mesh
+					geometry={nodes.Circle003_3.geometry}
+					material={materials['Material.073']}
+				/>
+				<mesh
+					geometry={nodes.Circle003_4.geometry}
+					material={materials['Material.076']}
+				/>
+				<mesh
+					geometry={nodes.Circle003_5.geometry}
+					material={materials['Material.077']}
+				/>
+			</group>
+		</group>
+	);
+}
+
+export function BurgerSteakLettuceTomatoCheese(props) {
+	const { nodes, materials } = useGLTF(
+		'/burger steak lettuce tomato cheese-transformed.glb'
+	);
+	return (
+		<group {...props} dispose={null}>
+			<group position={[0, 0.88, 0.01]} scale={[1, 1.44, 1]}>
+				<mesh
+					geometry={nodes.Cube003.geometry}
+					material={materials['Material.001']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_1.geometry}
+					material={materials['Material.019']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_2.geometry}
+					material={materials['Material.004']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_3.geometry}
+					material={materials['Material.001']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_4.geometry}
+					material={materials['Material.003']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_5.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_6.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_7.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_8.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_9.geometry}
+					material={materials['Material.012']}
+				/>
+				<mesh
+					geometry={nodes.Cube003_10.geometry}
+					material={materials['Material.002']}
+				/>
+			</group>
+		</group>
+	);
+}
+
 const items = [
 	{
 		component: <Plate />,
 		name: 'plate',
-		position: [-10, 4, 15],
+		position: [-35, 4, 30],
 	},
 	{
 		component: <RawBread />,
 		name: 'raw_bread',
-		position: [-9, 4, 15],
+		position: [-30, 4, 30],
 	},
 	{
 		component: <RawCheese />,
 		name: 'raw_cheese',
-		position: [-8, 4, 15],
+		position: [-25, 4, 30],
 	},
 	{
 		component: <RawLettuce />,
 		name: 'raw_lettuce',
-		position: [-7, 4, 15],
+		position: [-20, 4, 30],
 	},
 	{
 		component: <RawTomato />,
 		name: 'raw_tomato',
-		position: [-6, 4, 15],
+		position: [-15, 4, 30],
 	},
 	{
 		component: <RawSteak />,
 		name: 'raw_steak',
-		position: [-5, 4, 15],
+		position: [-10, 4, 30],
 	},
 	{
 		component: <CutCheese />,
 		name: 'cut_cheese',
-		position: [-4, 4, 15],
+		position: [-5, 4, 30],
 	},
 	{
 		component: <CutLettuce />,
 		name: 'cut_lettuce',
-		position: [-3, 4, 15],
+		position: [0, 4, 30],
 	},
 
 	{
 		component: <CutTomato />,
 		name: 'cut_tomato',
-		position: [-2, 4, 15],
+		position: [5, 4, 30],
 	},
 	{
 		component: <CutSteak />,
 		name: 'cut_steak',
-		position: [-1, 4, 15],
+		position: [10, 4, 30],
 	},
 	{
 		component: <CookedSteak />,
 		name: 'cooked_steak',
-		position: [0, 4, 15],
+		position: [15, 4, 30],
 	},
 ];
 

@@ -295,6 +295,7 @@ export default function Player() {
 	const pickdrop = () => {
 		let { hit } = itemDetection(4);
 
+		console.log(orientation);
 		console.log(hit);
 
 		if (indexItemCarrying !== -1) {
@@ -314,7 +315,11 @@ export default function Player() {
 	/* Reset position of carried item when used */
 	const resetPositionAfterUse = () => {
 		itemsRef.current[indexItemCarrying].setTranslation(
-			new THREE.Vector3(items[indexItemCarrying].position)
+			new THREE.Vector3(
+				items[indexItemCarrying].position[0],
+				items[indexItemCarrying].position[1],
+				items[indexItemCarrying].position[2]
+			)
 		);
 	};
 
