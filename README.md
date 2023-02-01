@@ -1,3 +1,61 @@
 # Flavor-symphony
 
-Run 'npm run dev' in the terminal
+## How to play
+- Clone the repository **main** branch
+```
+git clone https://github.com/ReaSlyn/Flavor-symphony.git
+```
+
+- Install the dependencies
+```
+npm i
+```
+
+- Run the game
+```
+**"npm run dev"**
+```
+
+Move with **ZQSD** for azerty keyboard or **WASD** for qwerty keyboard.
+
+
+## How to get a custom order (recipe)
+- Clone the repository **feat/backend** branch
+```
+git clone https://github.com/ReaSlyn/Flavor-symphony.git
+```
+```
+git checkout feat/backend
+```
+
+- Install the dependencies
+```
+npm i
+```
+
+- Run MAMP/WAMP on "MAMP DEFAULT" which is 8889 for the mySQL
+
+- Don't forget to use "Flavor symphony" as the document root folder
+
+- Next run the command in the terminal in "Flavor symphony" folder to create the database schema
+```
+npx prisma db push
+```
+
+- Then populate the database with the command
+```
+npx prisma db seed
+```
+
+- Run the server with
+```
+npm run server
+```
+
+- And the game with
+```
+npm run dev
+```
+
+### Help, i can't connect to the local databse
+All the credentials of the local databased used is in the **".env"** file, we are using **"root"** as the user and password
