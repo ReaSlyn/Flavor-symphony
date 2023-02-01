@@ -974,19 +974,9 @@ const items = [
 		position: [-20, 4, 40],
 	},
 	{
-		component: <BurgerLettuce />,
-		name: 'burger_lettuce',
-		position: [-15, 4, 40],
-	},
-	{
 		component: <BurgerTomato />,
 		name: 'burger_tomato',
 		position: [-10, 4, 40],
-	},
-	{
-		component: <BurgerCheese />,
-		name: 'burger_cheese',
-		position: [-5, 4, 40],
 	},
 	{
 		component: <BurgerSteakTomato />,
@@ -1004,18 +994,13 @@ const items = [
 		position: [10, 4, 40],
 	},
 	{
-		component: <BurgerLettuceTomato />,
-		name: 'burger_lettuce_tomato',
-		position: [15, 4, 40],
-	},
-	{
 		component: <BurgerTomatoCheese />,
-		name: 'burger_steak_tomato_cheese',
+		name: 'burger_tomato_cheese',
 		position: [20, 4, 40],
 	},
 	{
 		component: <BurgerLettuceCheese />,
-		name: 'burger_steak_lettuce_tomato_cheese',
+		name: 'burger_lettuce_cheese',
 		position: [25, 4, 40],
 	},
 	{
@@ -1029,11 +1014,6 @@ const items = [
 		position: [-25, 4, 50],
 	},
 	{
-		component: <BurgerSteakLettuceCheese />,
-		name: 'burger_steak_lettuce_cheese',
-		position: [-20, 4, 50],
-	},
-	{
 		component: <BurgerSteakTomatoCheese />,
 		name: 'burger_steak_tomato_cheese',
 		position: [-15, 4, 50],
@@ -1043,6 +1023,61 @@ const items = [
 		name: 'burger_steak_lettuce_tomato_cheese',
 		position: [-10, 4, 50],
 	},
+	{
+		component: <BurgerLettuceTomatoCheese />,
+		name: 'burger_lettuce_tomato_cheese',
+		position: [-5, 4, 50],
+	},
 ];
 
-export default items;
+const recipes = [
+	{ component: ['raw_bread', 'cut_cheese'], result: 11 },
+	{ component: ['raw_bread', 'cut_lettuce'], result: 12 },
+	{ component: ['raw_bread', 'cooked_steak'], result: 14 },
+	{ component: ['raw_bread', 'cut_tomato'], result: 15 },
+
+	{ component: ['burger_lettuce', 'cut_tomato'], result: 13 },
+	{ component: ['burger_tomato', 'cut_lettuce'], result: 13 },
+	{ component: ['burger_tomato', 'cooked_steak'], result: 16 },
+	{ component: ['burger_steak', 'cut_tomato'], result: 16 },
+	{ component: ['burger_lettuce', 'cooked_steak'], result: 17 },
+	{ component: ['burger_steak', 'cut_lettuce'], result: 17 },
+	{ component: ['burger_cheese', 'cooked_steak'], result: 18 },
+	{ component: ['burger_steak', 'cut_cheese'], result: 18 },
+	{ component: ['burger_tomato', 'cut_cheese'], result: 19 },
+	{ component: ['burger_cheese', 'cut_tomato'], result: 19 },
+	{ component: ['burger_lettuce', 'cut_cheese'], result: 20 },
+	{ component: ['burger_cheese', 'cut_lettuce'], result: 20 },
+
+	{ component: ['burger_steak_tomato', 'cut_lettuce'], result: 21 },
+	{ component: ['burger_steak_lettuce', 'cut_tomato'], result: 21 },
+	{ component: ['burger_lettuce_tomato', 'cooked_steak'], result: 21 },
+	{ component: ['burger_steak_lettuce', 'cut_cheese'], result: 22 },
+	{ component: ['burger_steak_cheese', 'cut_lettuce'], result: 22 },
+	{ component: ['burger_cheese_lettuce', 'cooked_steak'], result: 22 },
+	{ component: ['burger_steak_tomato', 'cut_cheese'], result: 23 },
+	{ component: ['burger_steak_cheese', 'cut_tomato'], result: 23 },
+	{ component: ['burger_cheese_tomato', 'cooked_steak'], result: 23 },
+	{ component: ['burger_lettuce_tomato', 'cut_cheese'], result: 25 },
+	{ component: ['burger_lettuce_cheese', 'cut_tomato'], result: 25 },
+	{ component: ['burger_tomato_cheese', 'cut_lettuce'], result: 25 },
+
+	{
+		component: ['burger_steak_lettuce_tomato', 'cut_cheese'],
+		result: 24,
+	},
+	{
+		component: ['burger_steak_lettuce_cheese', 'cut_tomato'],
+		result: 24,
+	},
+	{
+		component: ['burger_steak_tomato_cheese', 'cut_lettuce'],
+		result: 24,
+	},
+	{
+		component: ['burger_cheese_lettuce_tomato', 'cooked_steak'],
+		result: 24,
+	},
+];
+
+export { items, recipes };

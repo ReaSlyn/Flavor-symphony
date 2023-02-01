@@ -1,10 +1,10 @@
 import { useRapier, RigidBody, CuboidCollider } from '@react-three/rapier';
 import { useFrame } from '@react-three/fiber';
 import { useKeyboardControls } from '@react-three/drei';
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
-import items from './Items.jsx';
+import { items, recipes } from './Items.jsx';
 
 export default function Player() {
 	/* Items */
@@ -48,12 +48,13 @@ export default function Player() {
 		};
 	}, []);
 
-	useFrame((state, delta) => {
+	useFrame(() => {
 		/* Carrying item */
 		if (indexItemCarrying !== -1) {
 			let playerOrigin = body.current.translation();
 			let item = itemsRef.current[indexItemCarrying];
 
+			/* Change carried item rotation and translation by orientation */
 			if (orientation === 'forward') {
 				item.setTranslation(
 					new THREE.Vector3(playerOrigin.x, 3, playerOrigin.z - 1.8)
@@ -147,6 +148,7 @@ export default function Player() {
 		const { forward, backward, leftward, rightward } = getKeys();
 		const velocity = body.current.linvel();
 
+		/* Stop player when no key are pressed */
 		if (!forward && !backward) {
 			velocity.z = 0;
 		}
@@ -155,6 +157,7 @@ export default function Player() {
 			velocity.x = 0;
 		}
 
+		/* change rotation and velocity direction when key are pressed */
 		if (forward) {
 			velocity.z = -5 * 1.5;
 			body.current.setRotation({
@@ -232,15 +235,18 @@ export default function Player() {
 			orientation = 'backward/leftward';
 		}
 
+		/* Apply velocity direction */
 		body.current.setLinvel(velocity);
 	});
 
+	/* Detect scene objects with a raycast that hit the physic world (collision) */
 	const itemDetection = (yOffset) => {
 		let origin = body.current.translation();
 		origin.y = yOffset;
 
 		let vector = new THREE.Vector3(0, 0, -1);
 
+		/* Change origin and direction of raycast by the orientation */
 		if (orientation === 'forward') {
 			origin.z -= 2;
 			vector = new THREE.Vector3(0, 0, 1);
@@ -285,6 +291,7 @@ export default function Player() {
 			vector = new THREE.Vector3(1, 0, -1);
 		}
 
+		/* Create raycast with origin and direction to record the first hit */
 		const ray = new rapier.Ray(origin, vector);
 		const hit = rapierWorld.castRay(ray, 1, true);
 
@@ -295,30 +302,30 @@ export default function Player() {
 	const pickdrop = () => {
 		let { hit } = itemDetection(4);
 
-		console.log(orientation);
-		console.log(hit);
-
+		/* Drop item if the player carried one */
 		if (indexItemCarrying !== -1) {
 			indexItemCarrying = -1;
 			return;
 		}
 
+		/* Return the scene object is not a food related item */
 		if (!hit?.collider._parent.userData?.item) {
 			return;
 		}
 
+		/* Find the item ref index to manipulate it's position */
 		indexItemCarrying = itemsRef.current.findIndex(
 			(item) => item.handle === hit.collider._parent.handle
 		);
 	};
 
 	/* Reset position of carried item when used */
-	const resetPositionAfterUse = () => {
-		itemsRef.current[indexItemCarrying].setTranslation(
+	const resetPositionAfterUse = (index) => {
+		itemsRef.current[index].setTranslation(
 			new THREE.Vector3(
-				items[indexItemCarrying].position[0],
-				items[indexItemCarrying].position[1],
-				items[indexItemCarrying].position[2]
+				items[index].position[0],
+				items[index].position[1],
+				items[index].position[2]
 			)
 		);
 	};
@@ -327,11 +334,33 @@ export default function Player() {
 	const use = () => {
 		let { hit } = itemDetection(1);
 
+		/* If the player is carrying an item and wants to fuse it with the detected one */
+		if (indexItemCarrying !== -1) {
+			if (hit?.collider._parent.userData?.item) {
+				let indexItemDetected = itemsRef.current.findIndex(
+					(item) => item.handle === hit.collider._parent.handle
+				);
+
+				let indexRecipe = recipes.findIndex(
+					(recipe) =>
+						recipe.component.includes(items[indexItemCarrying].name) &&
+						recipe.component.includes(items[indexItemDetected].name)
+				);
+
+				if (indexRecipe !== -1) {
+					resetPositionAfterUse(indexItemDetected);
+					resetPositionAfterUse(indexItemCarrying);
+					indexItemCarrying = recipes[indexRecipe].result;
+				}
+			}
+		}
+
+		/* Return if the scene object is not useful in the gameplay */
 		if (!hit?.collider._parent.userData?.usable) {
 			return;
 		}
 
-		/* Teleport food to player */
+		/* Teleport food item to player */
 		if (hit?.collider._parent.userData.name === 'plates') {
 			itemsRef.current[0].setRotation({ w: 1.0, x: 0.0, y: 0.0, z: 0.0 });
 			itemsRef.current[0].setTranslation(new THREE.Vector3(2, 4, 9.5));
@@ -362,35 +391,40 @@ export default function Player() {
 			itemsRef.current[5].setTranslation(new THREE.Vector3(-6.5, 4, 9.25));
 		}
 
+		/* Cut food and teleport transformed food in hand */
 		if (
 			hit?.collider._parent.userData.name === 'workboard' &&
 			['raw_tomato', 'raw_cheese', 'raw_lettuce', 'raw_steak'].includes(
 				items[indexItemCarrying].name
 			)
 		) {
-			resetPositionAfterUse();
+			resetPositionAfterUse(indexItemCarrying);
 			indexItemCarrying += 4;
 		}
 
+		/* Cook food and teleport transformed food in hand */
 		if (hit?.collider._parent.userData.name === 'pan') {
 			if (items[indexItemCarrying].name === 'cut_steak') {
-				resetPositionAfterUse();
+				resetPositionAfterUse(indexItemCarrying);
 				indexItemCarrying = 10;
 			}
 		}
 
+		/* Send food to the order */
 		if (hit?.collider._parent.userData.name === 'counter') {
 			console.log('counter');
 		}
 
+		/* Teleport the food at it's initial position to make it disappear */
 		if (hit?.collider._parent.userData.name === 'bin') {
-			resetPositionAfterUse();
+			resetPositionAfterUse(indexItemCarrying);
 			indexItemCarrying = -1;
 		}
 	};
 
 	return (
 		<>
+			{/* Player */}
 			<RigidBody
 				type={'dynamic'}
 				colliders={false}
