@@ -411,12 +411,7 @@ export default function Player() {
 		}
 
 		/* Send food to the order */
-		if (hit?.collider._parent.userData.name === 'counter') {
-			console.log('counter');
-		}
-
-		/* Teleport the food at it's initial position to make it disappear */
-		if (hit?.collider._parent.userData.name === 'bin') {
+		if (['counter', 'bin'].includes(hit?.collider._parent.userData.name)) {
 			resetPositionAfterUse(indexItemCarrying);
 			indexItemCarrying = -1;
 		}
