@@ -12,8 +12,7 @@ root.render(
 			{ name: 'backward', keys: ['ArrowDown', 'KeyS'] },
 			{ name: 'leftward', keys: ['ArrowLeft', 'KeyA'] },
 			{ name: 'rightward', keys: ['ArrowRight', 'KeyD'] },
-			{ name: 'run', keys: ['Shift'] },
-			{ name: 'use', keys: ['Control'] },
+			{ name: 'use', keys: ['Shift'] },
 			{ name: 'pickdrop', keys: ['Space'] },
 		]}
 	>
