@@ -4,46 +4,12 @@ import { useKeyboardControls } from '@react-three/drei';
 import { useState, useEffect, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
-import * as Item from './Items.jsx';
+import items from './Items.jsx';
 
 export default function Player() {
-	/* ITEMS */
-
+	/* Items */
 	let indexItemCarrying = -1;
 	let itemsRef = useRef([]);
-
-	let items = [
-		{
-			component: <Item.Plate />,
-			name: 'plate',
-			position: [1, 1.25, 4],
-		},
-		{
-			component: <Item.RawBread />,
-			name: 'raw_bread',
-			position: [1, 1.25, 4],
-		},
-		{
-			component: <Item.RawCheese />,
-			name: 'raw_cheese',
-			position: [1, 1.25, 4],
-		},
-		{
-			component: <Item.RawLettuce />,
-			name: 'raw_lettuce',
-			position: [1, 1.25, 4],
-		},
-		{
-			component: <Item.RawTomato />,
-			name: 'raw_tomato',
-			position: [1, 1.25, 4],
-		},
-		{
-			component: <Item.RawSteak />,
-			name: 'raw_steak',
-			position: [1, 1.25, 4],
-		},
-	];
 
 	/* Player */
 	const body = useRef();
@@ -269,9 +235,9 @@ export default function Player() {
 		body.current.setLinvel(velocity);
 	});
 
-	const itemDetection = () => {
+	const itemDetection = (yOffset) => {
 		let origin = body.current.translation();
-		origin.y = origin.y + 3;
+		origin.y = yOffset;
 
 		let vector = new THREE.Vector3(0, 0, -1);
 
@@ -327,7 +293,9 @@ export default function Player() {
 
 	/* Pick & drop food */
 	const pickdrop = () => {
-		let { hit } = itemDetection();
+		let { hit } = itemDetection(4);
+
+		console.log(hit);
 
 		if (indexItemCarrying !== -1) {
 			indexItemCarrying = -1;
@@ -343,42 +311,67 @@ export default function Player() {
 		);
 	};
 
+	/* Reset position of carried item when used */
+	const resetPositionAfterUse = () => {
+		itemsRef.current[indexItemCarrying].setTranslation(
+			new THREE.Vector3(items[indexItemCarrying].position)
+		);
+	};
+
 	/* Interact with scene */
 	const use = () => {
-		let { hit } = itemDetection();
+		let { hit } = itemDetection(1);
 
 		if (!hit?.collider._parent.userData?.usable) {
 			return;
 		}
 
+		/* Teleport food to player */
+		if (hit?.collider._parent.userData.name === 'plates') {
+			itemsRef.current[0].setRotation({ w: 1.0, x: 0.0, y: 0.0, z: 0.0 });
+			itemsRef.current[0].setTranslation(new THREE.Vector3(2, 4, 9.5));
+		}
+
+		if (hit?.collider._parent.userData.name === 'box_bread') {
+			itemsRef.current[1].setRotation({ w: 1.0, x: 0.0, y: 0.0, z: 0.0 });
+			itemsRef.current[1].setTranslation(new THREE.Vector3(-3, 4, 9));
+		}
+
+		if (hit?.collider._parent.userData.name === 'box_cheese') {
+			itemsRef.current[2].setRotation({ w: 1.0, x: 0.0, y: 0.0, z: 0.0 });
+			itemsRef.current[2].setTranslation(new THREE.Vector3(5, 4, 2));
+		}
+
+		if (hit?.collider._parent.userData.name === 'box_lettuce') {
+			itemsRef.current[3].setRotation({ w: 1.0, x: 0.0, y: 0.0, z: 0.0 });
+			itemsRef.current[3].setTranslation(new THREE.Vector3(-2.5, 4, 2));
+		}
+
+		if (hit?.collider._parent.userData.name === 'box_tomato') {
+			itemsRef.current[4].setRotation({ w: 1.0, x: 0.0, y: 0.0, z: 0.0 });
+			itemsRef.current[4].setTranslation(new THREE.Vector3(1.25, 4, 2.1));
+		}
+
+		if (hit?.collider._parent.userData.name === 'box_steak') {
+			itemsRef.current[5].setRotation({ w: 1.0, x: 0.0, y: 0.0, z: 0.0 });
+			itemsRef.current[5].setTranslation(new THREE.Vector3(-6.5, 4, 9.25));
+		}
+
 		if (
-			[
-				'box_steak',
-				'box_cheese',
-				'box_bread',
-				'box_lettuce',
-				'box_tomato',
-				'plates',
-			].includes(hit?.collider._parent.userData.name)
+			hit?.collider._parent.userData.name === 'workboard' &&
+			['raw_tomato', 'raw_cheese', 'raw_lettuce', 'raw_steak'].includes(
+				items[indexItemCarrying].name
+			)
 		) {
-			items.push({
-				component: <Item.Plate />,
-				name: 'plate',
-				position: [1, 1.25, 4],
-			});
-			console.log(items);
-		}
-
-		if (indexItemCarrying === -1) {
-			return;
-		}
-
-		if (hit?.collider._parent.userData.name === 'workboard') {
-			console.log('workboard');
+			resetPositionAfterUse();
+			indexItemCarrying += 4;
 		}
 
 		if (hit?.collider._parent.userData.name === 'pan') {
-			console.log('pan');
+			if (items[indexItemCarrying].name === 'cut_steak') {
+				resetPositionAfterUse();
+				indexItemCarrying = 10;
+			}
 		}
 
 		if (hit?.collider._parent.userData.name === 'counter') {
@@ -386,10 +379,9 @@ export default function Player() {
 		}
 
 		if (hit?.collider._parent.userData.name === 'bin') {
+			resetPositionAfterUse();
+			indexItemCarrying = -1;
 		}
-
-		/* hit?.collider._parent.userData.name */
-		/* hit?.collider._parent.handle */
 	};
 
 	return (
@@ -406,7 +398,7 @@ export default function Player() {
 				<primitive object={character.scene} scale={1} />
 			</RigidBody>
 
-			{/* ITEMS */}
+			{/* Items */}
 			{items.map((item, index) => {
 				return (
 					<RigidBody

@@ -197,16 +197,17 @@ export function RawSteak(props) {
 
 export function RawTomato(props) {
 	const { nodes, materials } = useGLTF('/food/raw/tomato.glb');
+
 	return (
 		<group {...props} dispose={null}>
-			<group position={[0, 0.36, 0]} scale={[0.574, 0.504, 0.574]}>
+			<group position={[0, 0.39, 0]} scale={[0.1, 0.04, 0.1]}>
 				<mesh
-					geometry={nodes.Sphere002.geometry}
-					material={materials['Material.059']}
+					geometry={nodes.Cylinder001.geometry}
+					material={materials['Material.060']}
 				/>
 				<mesh
-					geometry={nodes.Sphere002_1.geometry}
-					material={materials['Material.060']}
+					geometry={nodes.Cylinder001_1.geometry}
+					material={materials['Material.059']}
 				/>
 			</group>
 		</group>
@@ -223,7 +224,7 @@ export function CutCheese(props) {
 				geometry={nodes.Cube.geometry}
 				material={materials['Material.001']}
 				position={[0, 0.02, 0]}
-				scale={[0.4, 0.02, 0.41]}
+				scale={[0.6, 0.02, 0.6]}
 			/>
 		</group>
 	);
@@ -238,7 +239,7 @@ export function CutLettuce(props) {
 				material={materials['Material.055']}
 				position={[0, 0.18, 0]}
 				rotation={[0.11, 0.2, -0.04]}
-				scale={[0.39, 0.48, 0.48]}
+				scale={[0.48, 0.52, 0.58]}
 			/>
 		</group>
 	);
@@ -252,7 +253,7 @@ export function CutSteak(props) {
 				geometry={nodes.Cube006.geometry}
 				material={materials['Material.061']}
 				position={[0, 0.07, 0]}
-				scale={[0.49, 0.6, 0.49]}
+				scale={[0.7, 0.84, 0.7]}
 			/>
 		</group>
 	);
@@ -262,32 +263,13 @@ export function CutTomato(props) {
 	const { nodes, materials } = useGLTF('/food/cut/tomato.glb');
 	return (
 		<group {...props} dispose={null}>
-			<group
+			<mesh
+				geometry={nodes.Cylinder004.geometry}
+				material={materials['Material.063']}
 				position={[0, 0.03, 0]}
 				rotation={[-Math.PI, 0.15, -Math.PI]}
-				scale={[-0.22, -0.02, -0.22]}
-			>
-				<mesh
-					geometry={nodes.Cylinder011.geometry}
-					material={materials['Material.063']}
-				/>
-				<mesh
-					geometry={nodes.Cylinder011_1.geometry}
-					material={materials['Material.063']}
-				/>
-				<mesh
-					geometry={nodes.Cylinder011_2.geometry}
-					material={materials['Material.063']}
-				/>
-				<mesh
-					geometry={nodes.Cylinder011_3.geometry}
-					material={materials['Material.063']}
-				/>
-				<mesh
-					geometry={nodes.Cylinder011_4.geometry}
-					material={materials['Material.063']}
-				/>
-			</group>
+				scale={[0.308, 0.02, 0.308]}
+			/>
 		</group>
 	);
 }
@@ -302,22 +284,69 @@ export function CookedSteak(props) {
 				geometry={nodes.Cube007.geometry}
 				material={materials['Material.062']}
 				position={[0, 0.07, 0]}
-				scale={[0.49, 0.6, 0.49]}
+				scale={[0.686, 0.84, 0.686]}
 			/>
 		</group>
 	);
 }
 
-export default {
-	Plate,
-	RawBread,
-	RawCheese,
-	RawLettuce,
-	RawSteak,
-	RawTomato,
-	CutCheese,
-	CutLettuce,
-	CutTomato,
-	CutSteak,
-	CookedSteak,
-};
+const items = [
+	{
+		component: <Plate />,
+		name: 'plate',
+		position: [-10, 4, 15],
+	},
+	{
+		component: <RawBread />,
+		name: 'raw_bread',
+		position: [-9, 4, 15],
+	},
+	{
+		component: <RawCheese />,
+		name: 'raw_cheese',
+		position: [-8, 4, 15],
+	},
+	{
+		component: <RawLettuce />,
+		name: 'raw_lettuce',
+		position: [-7, 4, 15],
+	},
+	{
+		component: <RawTomato />,
+		name: 'raw_tomato',
+		position: [-6, 4, 15],
+	},
+	{
+		component: <RawSteak />,
+		name: 'raw_steak',
+		position: [-5, 4, 15],
+	},
+	{
+		component: <CutCheese />,
+		name: 'cut_cheese',
+		position: [-4, 4, 15],
+	},
+	{
+		component: <CutLettuce />,
+		name: 'cut_lettuce',
+		position: [-3, 4, 15],
+	},
+
+	{
+		component: <CutTomato />,
+		name: 'cut_tomato',
+		position: [-2, 4, 15],
+	},
+	{
+		component: <CutSteak />,
+		name: 'cut_steak',
+		position: [-1, 4, 15],
+	},
+	{
+		component: <CookedSteak />,
+		name: 'cooked_steak',
+		position: [0, 4, 15],
+	},
+];
+
+export default items;
