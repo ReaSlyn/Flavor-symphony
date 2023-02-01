@@ -1,14 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
-// import GetRecipe from './GetRecipe.jsx';
-import RecipeHud from './RecipeHud.jsx';
-import GetRecipe from './GetRecipev1.jsx';
+import GetRecipe from './GetRecipe.jsx';
 import Random from './Helper/Random.jsx';
-
-// import AddRecipeHud from './AddRecipeHud.jsx';
-
-//counter
 
 export default function Game() {
 	const [isRunning, setIsRunning] = useState(false);
@@ -23,12 +17,16 @@ export default function Game() {
 	const [number, setNumber] = useState(Random(1, 8));
 	useEffect(() => {
 		if (counter > 0) {
-			const timer = setInterval(() => setCounter(counter - 1), 2000);
+			const timer = setInterval(
+				() => setCounter((counter) => counter - 1),
+				2000
+			);
 			return () => clearInterval(timer);
 		}
 	}, [counter]);
+
 	if (counter === 0) {
-		const interval = setInterval(() => setNumber(Random(1, 8)), 8000);
+		const interval = setInterval(() => setNumber(Random(1, 8)), 20000);
 		setCounter(2);
 		return () => clearInterval(interval);
 	}
@@ -64,7 +62,7 @@ export default function Game() {
 						<Experience />
 					</Canvas>
 					(counter === 0) ?
-					<GetRecipe time={6} randomNumber={number} />:
+					<GetRecipe time={2} randomNumber={number} />:
 				</>
 			)}
 		</>
