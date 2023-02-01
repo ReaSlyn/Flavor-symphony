@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Random from './Helper/Random';
 import RecipeHud from './RecipeHud';
 
 const GetRecipe = ({ time, randomNumber }) => {
@@ -23,12 +22,11 @@ const GetRecipe = ({ time, randomNumber }) => {
 
 	//If the recipe is not null, return the recipe
 	return recipe ? (
-		<GetNewRecipe recipe={recipe} time={time} randomNumber={randomNumber} />
+		<GetNewRecipe time={time} randomNumber={randomNumber} />
 	) : null;
 };
 
-//Get a new recipe every 20 seconds
-const GetNewRecipe = ({ recipe, time, randomNumber }) => {
+const GetNewRecipe = ({ time, randomNumber }) => {
 	const [counter, setCounter] = useState(time);
 
 	useEffect(() => {
