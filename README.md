@@ -31,7 +31,7 @@ Move with **ZQSD** for azerty keyboard or **WASD** for qwerty keyboard.
 
 
 ## How to get a custom order (recipe)
-- Clone the repository **feat/backend** branch
+1. Clone the repository **feat/backend** branch
 ```
 git clone https://github.com/ReaSlyn/Flavor-symphony.git
 ```
@@ -39,31 +39,31 @@ git clone https://github.com/ReaSlyn/Flavor-symphony.git
 git checkout feat/backend
 ```
 
-- Install the dependencies
+2. Install the dependencies
 ```
 npm i
 ```
 
-- Run MAMP/WAMP on "MAMP DEFAULT" which is 8889 for the mySQL
+3. Run MAMP/WAMP on "MAMP DEFAULT" which is 8889 for the mySQL
 
-- Don't forget to use "Flavor symphony" as the document root folder
+4. Don't forget to use "Flavor symphony" as the document root folder
 
-- Next run the command in the terminal in "Flavor symphony" folder to create the database schema
+5. Next run the command in the terminal in "Flavor symphony" folder to create the database schema
 ```
 npx prisma db push
 ```
 
-- Then populate the database with the command
+6. Then populate the database with the command
 ```
 npx prisma db seed
 ```
 
-- Run the server with
+7. Run the server with
 ```
 npm run server
 ```
 
-- And the game with
+8. And the game with
 ```
 npm run dev
 ```
