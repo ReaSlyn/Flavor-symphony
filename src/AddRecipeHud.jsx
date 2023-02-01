@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const AddRecipeHud = ({ delay, number }) => {
 	const [localDelay, setLocalDelay] = useState(delay);
-	console.log(number);
 
 	useEffect(() => {
 		const timer =
-			localDelay > 0 && setInterval(() => setLocalDelay(localDelay - 1), 10000);
+			localDelay > 0 &&
+			setInterval(() => setLocalDelay((localDelay) => localDelay - 1), 10000);
 		return () => clearInterval(timer);
 	}, [localDelay]);
 

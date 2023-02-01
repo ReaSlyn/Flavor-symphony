@@ -26,7 +26,8 @@ const GetRecipe = ({ time, randomNumber }) => {
 	) : null;
 };
 
-const GetNewRecipe = ({ time, randomNumber }) => {
+//Get a new recipe every 20 seconds
+const GetNewRecipe = ({ recipe, time, randomNumber }) => {
 	const [counter, setCounter] = useState(time);
 
 	useEffect(() => {
