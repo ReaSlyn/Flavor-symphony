@@ -2,25 +2,32 @@
 
 ## TLDR
 - The main branch possess the working game.
+
 - The feat/backend branch possess the working customer order (recipe) generation with the used backend but interaction aren't working.
 
+- After doing everything to set-up the game, it should run on port https://localhost:5173
+
+- Most of the interaction requires you to be really close and in front of the object, fusing bread with steak needs you to have one of them in hands (**SPACE**) and interact with the other with (**SHIFT**) while being really colliding with it.
+
 ## How to play
-- Clone the repository **main** branch
+1. Clone the repository **main** branch
 ```
 git clone https://github.com/ReaSlyn/Flavor-symphony.git
 ```
 
-- Install the dependencies
+2. Install the dependencies
 ```
 npm i
 ```
 
-- Run the game
+3. Run the game
 ```
 **"npm run dev"**
 ```
 
 Move with **ZQSD** for azerty keyboard or **WASD** for qwerty keyboard.
+**SHIFT** is used to interact with food boxes, the plate pile, workboards, frying pans and the bin
+**SPACE** is used to pick/drop bread, steak, tomato, cheese and plate.
 
 
 ## How to get a custom order (recipe)
