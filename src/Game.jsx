@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
 import GetRecipe from './GetRecipe.jsx';
-import Random from './Helper/Random.jsx';
+
+function Random(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 export default function Game() {
 	const [isRunning, setIsRunning] = useState(false);
@@ -12,43 +15,36 @@ export default function Game() {
 		/* @TODO load previous save */
 	};
 
-	//timer
-	const [counter, setCounter] = useState(2);
-	const [number, setNumber] = useState(Random(1, 8));
+	/* Timer */
+	const [randomNumber, setRandomNumber] = useState(null);
 	const [recipeGenerated, setRecipeGenerated] = useState(0);
+
 	useEffect(() => {
-		if (counter > 0) {
-			const timer = setInterval(
-				() => setCounter((counter) => counter - 1),
-				2000
-			);
-			return () => clearInterval(timer);
-		}
-	}, [counter]);
+		if (!isRunning) return;
 
-	if (counter === 0) {
-		const interval = setInterval(
-			() => setRecipeGenerated(recipeGenerated + 1),
-			20000
-		);
+		/* Change customer order every 15 seconds  */
+		const interval = setInterval(() => {
+			setRecipeGenerated((recipeGenerated) => recipeGenerated + 1);
+		}, 15000);
 
-		//Limit the number of recipes generated
-		//Level 1: 2 recipes
-		//Level 2: 5 recipes
-		//Level 3: 8 recipes
-
-		if (recipeGenerated < 3) {
-			setNumber(Random(1, 2));
-			setCounter(10);
-		} else if (recipeGenerated < 6) {
-			setNumber(Random(1, 5));
-			setCounter(10);
-		} else {
-			setNumber(Random(1, 8));
-			setCounter(10);
-		}
 		return () => clearInterval(interval);
-	}
+	}, [isRunning]);
+
+	useEffect(() => {
+		/* 
+		Available recipes by recipeGenerated
+		Level 1: 2 recipes
+		Level 2: 5 recipes
+		Level 3: 8 recipes 
+		*/
+		if (recipeGenerated <= 1) {
+			setRandomNumber(Random(1, 2));
+		} else if (recipeGenerated < 5) {
+			setRandomNumber(Random(1, 5));
+		} else {
+			setRandomNumber(Random(1, 8));
+		}
+	}, [recipeGenerated]);
 
 	return (
 		<>
@@ -80,11 +76,7 @@ export default function Game() {
 					>
 						<Experience />
 					</Canvas>
-					{counter === 0 ? (
-						<GetRecipe time={2} randomNumber={number} />
-					) : (
-						<GetRecipe time={2} randomNumber={number} />
-					)}
+					<GetRecipe randomNumber={randomNumber} />
 				</>
 			)}
 		</>
