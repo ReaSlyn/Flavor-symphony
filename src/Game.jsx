@@ -12,6 +12,7 @@ export default function Game() {
 
 	return (
 		<>
+			{/* Home screen menu */}
 			<div className="menu">
 				<img className="logo" src="./logo.png" alt="logo" />
 				<div className={`buttons ${isRunning ? 'hide' : ''}`}>
@@ -27,6 +28,7 @@ export default function Game() {
 				</div>
 			</div>
 
+			{/* Game */}
 			{isRunning && (
 				<Canvas
 					className={`canvas ${isRunning ? 'show' : ''}`}
