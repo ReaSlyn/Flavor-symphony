@@ -1,5 +1,9 @@
 # Flavor-symphony
 
+## TLDR
+The main branch possess the working game.
+The feat/backend branch possess the working customer order (recipe) generation with the used backend but interaction aren't working.
+
 ## How to play
 - Clone the repository **main** branch
 ```
