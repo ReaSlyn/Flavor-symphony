@@ -22,7 +22,7 @@ npm i
 
 3. Run the game
 ```
-**"npm run dev"**
+npm run dev
 ```
 
 Move with **ZQSD** for azerty keyboard or **WASD** for qwerty keyboard.
